@@ -9,7 +9,11 @@ require('dotenv').config(); // Load environment variables from .env file
 const app = express();
 const PORT = process.env.PORT || 3000; // Set the port for the server
 
-app.use(cors()); // Enable CORS for all routes
+app.use(cors({
+    origin: ['https://your-frontend-url.onrender.com'], // allow only your frontend
+  methods: ['POST', 'GET'],
+  credentials: true, // allow credentials
+})); // Enable CORS for all routes
 app.use(bodyParser.json()); // Middleware to parse JSON request bodies
 app.use('/api', userRouter); // Use the user router for API routes
 
