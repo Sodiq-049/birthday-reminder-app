@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('email').value;
         const dob = document.getElementById('dob').value;
 
-        const baseURL = 'https://birthday-reminder-app-d8vi.onrender.com'
-        fetch(`${baseURL}/api/users`, {  // Use localhost:3000
+        const response = await fetch('http://localhost:3000/api/users', {  // Use localhost:3000
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
